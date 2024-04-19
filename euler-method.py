@@ -1,4 +1,4 @@
-def euleMethod(f, w0, x0, x1, n):
+def eulerMethod(f, w0, x0, x1, n):
     if(n==0): return w0
     h = (x1 - x0) / n
     w = w0
@@ -11,4 +11,4 @@ def euleMethod(f, w0, x0, x1, n):
 if __name__ == "__main__":
     def f(x, y):
         return x**2 + 0.5 * y**2
-    print(euleMethod(f, 2, 1, 2, 0))
+    print(eulerMethod(f, 2, 1, 2, 0))
