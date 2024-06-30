@@ -5,9 +5,9 @@ CONSTS = {
     'MIN_BET' : 5,
     'MAX_ROUND_AMOUNT' : 1000,
     'AMOUNT_TO_WIN' : 500,
-    'AMOUNT_TO_LOSE' : -100,
+    'AMOUNT_TO_LOSE' : 0,
 }
-wallet = 50
+wallet = 100
 play = True
 tries = 0
 lineSpace = 42
@@ -45,14 +45,18 @@ print('*'+'Hola bienvenido a Gambling game'.center(lineSpace-2)+'*')
 print('*'*lineSpace)
 tries = 0
 while(play):
-    print('tu saldo en la cartera es: ' + str(wallet))
-    print('cuanto vas a apostar?')
+    print('Tu saldo en la cartera es: ' + str(wallet))
+    print('Cuanto vas a apostar?')
     amountToBet = int(input())
-    if amountToBet < CONSTS['MIN_BET']:
-        while(amountToBet < CONSTS['MIN_BET'] ):
-            print('deve ser mayor o igual a 5 ')
-            amountToBet = int(input())
-    print('el juego va a comenzar, presiona ENTER para continuar')
+    if amountToBet < CONSTS['MIN_BET'] or amountToBet > wallet:
+        while(amountToBet < CONSTS['MIN_BET'] or amountToBet > wallet):
+            if amountToBet < CONSTS['MIN_BET']:
+                print('Debe ser mayor o igual a ' + str(CONSTS['MIN_BET']))
+                amountToBet = int(input())
+            elif amountToBet > wallet:
+                print('No puedes apostar mas de ' + str(wallet))
+                amountToBet = int(input())
+    print('El juego va a comenzar, presiona ENTER para continuar')
     input()
     for i in range(CONSTS['MAX_ROUND_AMOUNT']):
         if(wallet >= CONSTS['AMOUNT_TO_WIN'] or wallet <= CONSTS['AMOUNT_TO_LOSE']):
@@ -83,14 +87,14 @@ while(play):
     print('*'*lineSpace)
     print('*'+'Tiradas'.center(lineSpace-2)+'*')
     print('*'*lineSpace)
-    print('*'+(' 1: ' + f'{numbers[1]} ({((numbers[1]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' 2: ' + f'{numbers[2]} ({((numbers[2]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' 3: ' + f'{numbers[3]} ({((numbers[3]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' 4: ' + f'{numbers[4]} ({((numbers[4]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' 5: ' + f'{numbers[5]} ({((numbers[5]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' 6: ' + f'{numbers[6]} ({((numbers[6]/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' Pares: ' + f'{getPares()} ({((getPares()/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' Inpares: ' + f'{getImpares()} ({((getImpares()/tries)*100):.2f})').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 1: ' + f'{numbers[1]} ({((numbers[1]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 2: ' + f'{numbers[2]} ({((numbers[2]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 3: ' + f'{numbers[3]} ({((numbers[3]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 4: ' + f'{numbers[4]} ({((numbers[4]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 5: ' + f'{numbers[5]} ({((numbers[5]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' 6: ' + f'{numbers[6]} ({((numbers[6]/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' Pares: ' + f'{getPares()} ({((getPares()/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' Inpares: ' + f'{getImpares()} ({((getImpares()/tries)*100):.2f})%').ljust(lineSpace-2,' ')+'*')
     print('*'*lineSpace)
 
     if( wallet >= CONSTS['AMOUNT_TO_WIN'] or wallet <= CONSTS['AMOUNT_TO_LOSE']):
