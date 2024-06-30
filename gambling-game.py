@@ -6,8 +6,9 @@ CONSTS = {
     'MAX_ROUND_AMOUNT' : 1000,
     'AMOUNT_TO_WIN' : 500,
     'AMOUNT_TO_LOSE' : 0,
+    'INITIAL_WALLET' : 100
 }
-wallet = 100
+wallet = CONSTS['INITIAL_WALLET']
 play = True
 tries = 0
 lineSpace = 42
@@ -29,7 +30,6 @@ def getEven():
 def getOdd():
     return numbers[5] + numbers[3] + numbers[1]
 
-
 def cleanNumbers():
     numbers[1] = 0
     numbers[2] = 0
@@ -41,7 +41,7 @@ def cleanNumbers():
 
 
 print('*'*lineSpace)
-print('*'+'Hola bienvenido a Gambling game'.center(lineSpace-2)+'*')
+print('*'+'Bienvenido a Gambling game'.center(lineSpace-2)+'*')
 print('*'*lineSpace)
 tries = 0
 while(play):
@@ -100,8 +100,8 @@ while(play):
     if( wallet >= CONSTS['AMOUNT_TO_WIN'] or wallet <= CONSTS['AMOUNT_TO_LOSE']):
         cleanNumbers()
         tries = 0
-        wallet = 50
+        wallet = CONSTS['INITIAL_WALLET']
     
-    print('deseas jugar de nuevo?')
-    play = (input() == 'si')
+    print('Deseas jugar de nuevo?')
+    play = (input().lower() == 'si')
         
