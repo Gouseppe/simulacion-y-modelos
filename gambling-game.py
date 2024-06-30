@@ -24,9 +24,9 @@ def generateRandomNumber():
     return random.randint(1, 6)
 def isWinningNumber(randomNumber):
     return randomNumber %2 == 0
-def getPares():
+def getEven():
     return numbers[6] + numbers[4] + numbers[2]
-def getImpares():
+def getOdd():
     return numbers[5] + numbers[3] + numbers[1]
 
 
@@ -93,8 +93,8 @@ while(play):
     print('*'+(' 4: ' + f'{numbers[4]} ({((numbers[4]/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
     print('*'+(' 5: ' + f'{numbers[5]} ({((numbers[5]/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
     print('*'+(' 6: ' + f'{numbers[6]} ({((numbers[6]/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' Pares: ' + f'{getPares()} ({((getPares()/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
-    print('*'+(' Inpares: ' + f'{getImpares()} ({((getImpares()/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' Pares: ' + f'{getEven()} ({((getEven()/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
+    print('*'+(' Inpares: ' + f'{getOdd()} ({((getOdd()/tries)*100):.2f}%)').ljust(lineSpace-2,' ')+'*')
     print('*'*lineSpace)
 
     if( wallet >= CONSTS['AMOUNT_TO_WIN'] or wallet <= CONSTS['AMOUNT_TO_LOSE']):
