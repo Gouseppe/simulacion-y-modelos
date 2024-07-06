@@ -41,7 +41,7 @@ def repeatGame(tries, amountToBet, maxRoundAmount, amountToWin, amountToLose, in
         else:
             draws += 1
 
-    print(f'Winnings: {winnings}, Loses: {loses}, Draws: {draws}')
+    print(f'Winnings: {winnings}, ({winnings/tries*100:.2f}%), Loses: {loses}, ({loses/tries*100:.2f}%), Draws: {draws}, ({draws/tries*100:.2f}%)')
     
         
 if __name__ == "__main__":
