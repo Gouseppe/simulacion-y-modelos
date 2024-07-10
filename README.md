@@ -13,4 +13,4 @@ Repositorio para los programas realizados en la materia Simulación y modelos
 
 [myGitHub]: https://github.com/Gouseppe
 [Euler]: https://github.com/Gouseppe/simulacion-y-modelos/blob/main/euler-method.py
-[GamblingGame]:  https://github.com/Gouseppe/simulacion-y-modelos/blob/main/gambling-game.py
+[GamblingGame]: https://github.com/Gouseppe/simulacion-y-modelos/blob/main/gambling-game.py
